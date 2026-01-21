@@ -1,11 +1,11 @@
-# The Metric Mandate - Claude Skill
+# The Metric Mandate - Claude Code Skill
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude](https://img.shields.io/badge/Claude-Compatible-blue)](https://claude.ai)
 
 ![Architecture](docs/images/architecture-diagram.png)
 
-A copy-paste Claude prompt that forces you to define measurable success criteria for AI projects before you start building.
+An installable Claude Code skill that forces you to define measurable success criteria for AI projects before you start building.
 
 ## What This Does
 
@@ -17,7 +17,7 @@ Before any AI project moves past the idea stage, you need to answer 5 critical q
 4. **When will you measure?**
 5. **What result means you stop?** (kill criteria)
 
-This Claude skill guides you through all 5 questions and **rejects vague answers** until you have specific, measurable criteria.
+This skill guides you through all 5 questions and **rejects vague answers** until you have specific, measurable criteria.
 
 ## Why This Matters
 
@@ -29,29 +29,29 @@ The Metric Mandate prevents that.
 
 ## Installation
 
-### Option 1: Claude Code
-```bash
-# Copy the prompt
-cat metric-mandate-prompt.txt | pbcopy
+### For Claude Code Users
 
-# Create a new Claude Code session and paste
+```bash
+cd ~/.claude/skills
+git clone https://github.com/aplaceforallmystuff/metric-mandate-claude metric-mandate
 ```
 
-### Option 2: Claude.ai
-1. Copy the contents of `metric-mandate-prompt.txt`
-2. Create a new Project in Claude.ai
-3. Add the prompt to "Custom Instructions"
-4. Start a conversation describing your AI project
+Then invoke with `/metric-mandate` in any Claude Code session.
 
-### Option 3: Quick Use
-Just copy the prompt and paste it into any Claude conversation.
+### For Claude Desktop Users (Projects)
+
+1. Download this repository
+2. Copy the contents of `skill.md`
+3. In Claude.ai, create a new Project
+4. Add `skill.md` contents to "Custom Instructions"
+5. Start a conversation describing your AI project
 
 ## Usage
 
-1. Start a conversation with Claude using this prompt
-2. Describe your AI project idea
-3. Answer each of the 5 questions as Claude guides you
-4. Claude will reject vague responses and push for specifics
+1. Invoke the skill: `/metric-mandate` or mention you have an AI project idea
+2. Describe your AI project when prompted
+3. Answer each of the 5 questions as the skill guides you
+4. The skill will reject vague responses and push for specifics
 5. When complete, you'll get a summary table with all criteria
 
 ## Example Transformation
@@ -74,14 +74,15 @@ The discomfort you feel defining kill criteria? That's the point. If you won't c
 
 ## Files
 
-- `metric-mandate-prompt.txt` - The complete Claude skill prompt (copy this)
+- `skill.md` - The Claude Code skill definition (core functionality)
 - `README.md` - This file
 - `LICENSE` - MIT License
 - `examples/` - Sample conversations and outputs
+- `docs/images/` - Architecture diagram
 
 ## Related Tools
 
-- **ChatGPT version**: [metric-mandate-chatgpt](https://github.com/aplaceforallmystuff/metric-mandate-chatgpt) - Same framework for ChatGPT users
+- **ChatGPT version**: [metric-mandate-chatgpt](https://github.com/aplaceforallmystuff/metric-mandate-chatgpt) - Copy-paste prompt for ChatGPT users
 
 ## Origin Story
 
@@ -91,7 +92,7 @@ Written by Jim Christian, an AI consultant and strategist based in Valencia, Spa
 
 ## Contributing
 
-Found a way to improve the prompt? Open a PR or issue.
+Found a way to improve the skill? Open a PR or issue.
 
 ## License
 
