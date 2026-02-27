@@ -16,7 +16,7 @@ Projects without clear metrics can't fail. They drift indefinitely, consuming bu
 
 User invokes the skill with `/metric-mandate` or mentions they have an AI project idea.
 
-The skill guides them through 5 critical questions, rejecting vague answers until all criteria are specific and measurable.
+The skill guides them through 5 critical questions, rejecting vague answers until all criteria are specific and measurable. Then it stress-tests the chosen metric for gameability.
 
 ---
 
@@ -57,7 +57,33 @@ Guide users through these 5 questions. For each answer:
 - ❌ Bad: "We want to improve customer service"
 - ✅ Good: "Reduce average ticket resolution time from 4.2 hours to under 2 hours within 90 days"
 
-**Step 5:** When all 5 questions are answered, format as a clean summary table
+**Step 5:** When all 5 questions are answered, run the Gameability Check (see below)
+
+**Step 6:** Format the final summary table with gameability results
+
+---
+
+## Gameability Check
+
+After all 5 questions have specific answers, stress-test the metric before declaring it ready.
+
+Ask: **"How would someone hit this number without actually solving the problem?"**
+
+This is Goodhart's Law applied directly: when a measure becomes a target, it ceases to be a good measure. The gameability check catches metrics that are specific but dishonest.
+
+**If the gaming vector is obvious:**
+The metric needs a companion metric that catches the gaming behaviour. Work with the user to identify one.
+
+- ❌ "Reduce ticket resolution time to under 2 hours" → agents close tickets without resolving them
+- ✅ "Resolution time under 2 hours AND customer satisfaction stays above 4.2/5" → gaming one tanks the other
+
+**If the gaming vector is hard to identify:**
+The metric is robust. Note this and proceed.
+
+**Rules for companion metrics:**
+- The companion must move in the OPPOSITE direction if the primary is gamed
+- It must come from a different data source (same system = same incentive to game)
+- One companion is enough — don't create a dashboard of 10 metrics to avoid gaming one
 
 ---
 
@@ -75,6 +101,7 @@ Once all questions are answered, provide:
 | **Minimum success?** | [target number] by [date] |
 | **Measurement timeline?** | [specific date or duration] |
 | **Kill criteria?** | If not at [threshold] by [checkpoint date], reassess |
+| **Gameability check?** | [gaming vector] → mitigated by [companion metric] OR ✅ No obvious gaming vector |
 
 ## Status
 
@@ -119,6 +146,16 @@ Pick ONE specific metric.
 
 [Continue until all 5 questions have specific answers...]
 
+**You:** All 5 questions answered. Now the stress test: how would someone hit "under 3 hours resolution time" without actually solving the problem?
+
+**User:** I guess agents could just close tickets faster without properly resolving them.
+
+**You:** Exactly. That's your gaming vector. You need a companion metric that breaks if someone games resolution time. Customer satisfaction (CSAT) on resolved tickets works — if agents rush closures, CSAT drops. What's your current CSAT score?
+
+**User:** 3.8 out of 5.
+
+**You:** So your gameability mitigation is: resolution time under 3 hours AND CSAT stays at or above 3.8. If resolution time drops but CSAT drops with it, someone's gaming the metric. Here's your complete mandate:
+
 ---
 
 ## Success Criteria
@@ -127,6 +164,7 @@ The skill is complete when:
 - All 5 questions have specific, measurable answers
 - No field contains "TBD" or vague language
 - User has clear kill criteria defined
+- Gameability check has been run (gaming vector identified and mitigated, or confirmed robust)
 - Summary table is formatted and presented
 
 ---

@@ -52,7 +52,15 @@ Pick ONE specific metric.
 
 **User:** Yes, exactly.
 
-**Claude:** Perfect. Here's your complete Metric Mandate:
+**Claude:** All 5 questions locked in. Now the stress test — how would someone hit "under 3 hours resolution time" without actually solving the problem?
+
+**User:** I suppose agents could just close tickets faster without properly resolving them. Or they could cherry-pick easy tickets and leave hard ones in the queue.
+
+**Claude:** Both valid gaming vectors. You need a companion metric that breaks if someone games resolution time. Customer satisfaction (CSAT) on resolved tickets works well — if agents rush closures or dodge hard tickets, CSAT drops. What's your current CSAT score?
+
+**User:** 3.8 out of 5.
+
+**Claude:** Your gameability mitigation: resolution time under 3 hours AND CSAT stays at or above 3.8. If resolution time drops but CSAT drops with it, someone's gaming the metric. Here's your complete Metric Mandate:
 
 ## Your AI Project Metric Mandate
 
@@ -63,6 +71,7 @@ Pick ONE specific metric.
 | **Minimum success?** | Under 3 hours (30% improvement) by day 90 |
 | **Measurement timeline?** | 90 days of production use |
 | **Kill criteria?** | If not below 3.5 hours by day 60, reassess approach |
+| **Gameability check?** | Premature closure / cherry-picking → mitigated by CSAT ≥ 3.8/5 |
 
 ## Status
 
@@ -78,5 +87,6 @@ Notice how the framework transformed:
 - Vague improvement goal → Specific target (under 3 hours = 30% improvement)
 - No timeline → Specific measurement point (90 days)
 - No failure definition → Clear kill criteria (3.5 hours at day 60)
+- No gaming defence → Companion metric (CSAT ≥ 3.8) catches premature closures
 
-The final version might feel like overkill. It's not. It's the difference between a project that can succeed or fail — and therefore be learned from — versus a project that just continues indefinitely.
+The final version might feel like overkill. It's not. It's the difference between a project that can succeed or fail — and therefore be learned from — versus a project that just continues indefinitely. And the gameability check ensures your "success" actually means something.

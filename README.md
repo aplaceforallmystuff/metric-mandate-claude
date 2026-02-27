@@ -17,7 +17,9 @@ Before any AI project moves past the idea stage, you need to answer 5 critical q
 4. **When will you measure?**
 5. **What result means you stop?** (kill criteria)
 
-This skill guides you through all 5 questions and **rejects vague answers** until you have specific, measurable criteria.
+Then it stress-tests your metric: **"How would someone hit this number without actually solving the problem?"** If the answer is easy, you need a companion metric. If it's hard, your metric is robust.
+
+This skill guides you through all 5 questions, **rejects vague answers**, and runs a gameability check before declaring you ready.
 
 ## Why This Matters
 
@@ -52,7 +54,8 @@ Then invoke with `/metric-mandate` in any Claude Code session.
 2. Describe your AI project when prompted
 3. Answer each of the 5 questions as the skill guides you
 4. The skill will reject vague responses and push for specifics
-5. When complete, you'll get a summary table with all criteria
+5. After all 5 questions, the skill stress-tests your metric for gameability
+6. When complete, you'll get a summary table with all criteria and gameability status
 
 ## Example Transformation
 
@@ -60,7 +63,7 @@ Then invoke with `/metric-mandate` in any Claude Code session.
 "We want to use AI to improve our customer service."
 
 **After (specific):**
-"We want to reduce average ticket resolution time from 4.2 hours to under 2 hours within 90 days. If we're not below 3 hours by day 60, we'll reassess the approach. Current baseline measured from Q4 2024 data across 12,000 tickets."
+"We want to reduce average ticket resolution time from 4.2 hours to under 2 hours within 90 days. If we're not below 3 hours by day 60, we'll reassess the approach. Current baseline measured from Q4 2024 data across 12,000 tickets. Gaming vector: agents closing tickets prematurely — mitigated by maintaining CSAT at or above 3.8/5."
 
 ## What Makes This Different
 
@@ -69,8 +72,9 @@ Most AI project planning tools accept vague goals. This one doesn't. It's delibe
 - Projects without clear metrics can't fail (which means they can't succeed either)
 - Vague goals lead to "sort of done" results
 - If you can't answer these 5 questions with specific numbers, you're not ready to build
+- Specific metrics can still be gamed — the gameability check catches this before you start
 
-The discomfort you feel defining kill criteria? That's the point. If you won't commit to when you'd stop, you probably shouldn't start.
+The discomfort you feel defining kill criteria? That's the point. If you won't commit to when you'd stop, you probably shouldn't start. And if you can easily describe how to hit your metric without solving the problem, you've picked the wrong metric.
 
 ## Files
 
